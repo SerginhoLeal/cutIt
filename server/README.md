@@ -17,10 +17,12 @@
   **Upload files:** ***video*** ***image*** ***multiple files***
 
   **[75%] HOME:** will have four items: ***recently*** - ***popular*** - ***keep_watching*** - ***playlist***
-  - **[✔] recently:** get recently posted videos.<br>
-  - **[✔] popular:** get popular videos of the week.<br>
-  - **[] keep_watching:** get unfinished videos.<br>
-  - **[✔] playlist:** get playlist made by the community<br>
+  ```js
+    [✔] recently: get recently posted videos.
+    [✔] popular: get popular videos of the week.
+    [✖] keep_watching: get unfinished videos.
+    [✔] playlist: get playlist made by the community.
+  ```
 
   **[0%] Play Video:**
   - **[✔] Related Videos**
