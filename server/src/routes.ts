@@ -22,7 +22,7 @@ routes.post('/create-post', multer(multerConfig).array('file', 2), postsControll
 routes.put('/put-post', multer(multerConfig).array('file', 2), postsController.put);
 routes.delete('/delete-post', postsController.delete);
 
-routes.get('/more-posts', postsController.posts);
+routes.get('/more-posts', postsController.pagination);
 routes.get('/play-video', postsController.video);
 
 //playlist
