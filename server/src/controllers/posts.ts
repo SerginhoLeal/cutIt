@@ -45,7 +45,7 @@ export class PostsController {
       page: Number(page),
       totalPage: isInteger ? calc : parseInt(String(calc + 1)),
       totalObjects: docs.length,
-    }
+    };
 
     return res.status(200).json(result);
   };
