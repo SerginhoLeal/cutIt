@@ -26,18 +26,28 @@ export class PostsController {
     return res.status(200).json({ recently, popular, playlist, keep_watching });
   };
 
-  async posts (req:Request, res:Response) {
+  async pagination (req:Request, res:Response) {
     const docs = await Posts.get();
     const { page }: any = req.query;
 
     const posts = docs.sort((a, b) => a.like - b.like).reverse();
 
-    const firstItem = page === 1 ? 0 : (page * 10) - 9;
+    const firstItem = page == 1 ? 0 : (page * 10) - 9;
     const lastItem = page * 10;
 
     const pagination = posts.slice(firstItem, lastItem);
 
-    return res.status(200).json(pagination);
+    const calc = docs.length / pagination.length;
+    const isInteger = Number.isInteger(calc);
+
+    const result = {
+      data: pagination,
+      page: Number(page),
+      totalPage: isInteger ? calc : parseInt(String(calc + 1)),
+      totalObjects: docs.length,
+    }
+
+    return res.status(200).json(result);
   };
 
   async video (req:Request, res:Response) {
